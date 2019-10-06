@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include<string.h>
+#include<math.h>
+int main(void) {
+	char inputString[1000];
+	char outputString[1000];
+    scanf("%s",inputString);
+    int cipher =0;
+    scanf("%d",&cipher);
+    cipher =cipher%26;                              
+    for(int i=0;i<strlen(inputString);i++){
+        if((int)inputString[i] +cipher>122){
+            int rem = abs((122-(int)inputString[i]) - cipher);
+            outputString[i] = (char)(97+(rem-1));
+         //   printf("%d",rem);
+        }
+        else{
+            outputString[i] = (char)(inputString[i]+cipher);
+        }
+    }
+    printf("%s",outputString);
+	return 0;
+}
+
